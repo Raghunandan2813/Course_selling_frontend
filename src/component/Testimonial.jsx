@@ -21,22 +21,24 @@ const Testimonial = () => {
   ]
 
   return (
-    <div className="bg-gray-900 py-16 px-4">
+    <div className="bg-white py-16 px-4">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold text-white mb-12 text-center">Student Testimonials</h2>
-        
+        <h2 className="text-4xl font-bold text-black mb-12 text-center">Student Testimonials</h2>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {testimonials.map((testimonial) => (
-            <div key={testimonial.id} className="bg-gray-800 p-6 rounded-lg">
-              <p className="text-gray-300 mb-6">"{testimonial.review}"</p>
-              
+            <div key={testimonial.id} className="bg-white border border-gray-200 shadow-md p-6 rounded-lg">
+              <p className="text-gray-700 mb-6">"{testimonial.review}"</p>
+
               <div className="flex items-center gap-4">
                 <img
                   src={testimonial.photo}
                   alt={testimonial.name}
+                  loading="lazy"
+                  decoding="async"
                   className="w-12 h-12 rounded-full"
                 />
-                <h4 className="text-white font-bold">{testimonial.name}</h4>
+                <h4 className="text-black font-bold">{testimonial.name}</h4>
               </div>
             </div>
           ))}

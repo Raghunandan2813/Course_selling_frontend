@@ -1,3 +1,15 @@
+
+import reactImg from './react.jpg';
+import nextjsImg from './next.jpg';
+import systemdesignImg from './system.jpg'
+import nodeImg from './node.jpg'
+import javascriptImg from './javascript.jpg'
+import mongodbImg from './mongodb.jpg'
+import typescriptImg from './typescript.jpg'
+import fullstackImg from './fullstack.jpg'
+import dockerImg from './docer.jpg'
+import dsaImg from './dsa.jpg'
+
 export const courses = [
   {
     id: "react-mastery",
@@ -8,7 +20,7 @@ export const courses = [
     level: "Beginner to Advanced",
     rating: 4.8,
     students: 1245,
-    thumbnail: "/images/react.jpg",
+    thumbnail: reactImg,
     description:
       "Learn React including hooks, routing, API integration, and real-world projects.",
     videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
@@ -22,7 +34,7 @@ export const courses = [
     level: "Intermediate",
     rating: 4.9,
     students: 980,
-    thumbnail: "/images/nextjs.jpg",
+    thumbnail: nextjsImg,
     description:
       "Master Next.js including SSR, authentication, and deployment.",
     videoUrl: "https://www.w3schools.com/html/movie.mp4",
@@ -36,8 +48,8 @@ export const courses = [
     level: "Beginner",
     rating: 4.7,
     students: 760,
-    thumbnail: "/images/node.jpg",
-    description:
+    thumbnail: nodeImg,
+    discription:
       "Build REST APIs, JWT authentication, and connect databases.",
     videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
   },
@@ -50,7 +62,7 @@ export const courses = [
     level: "Advanced",
     rating: 4.9,
     students: 540,
-    thumbnail: "/images/systemdesign.jpg",
+    thumbnail: systemdesignImg,
     description:
       "Learn scalability, caching, load balancing, and architecture design.",
     videoUrl: "https://www.w3schools.com/html/movie.mp4",
@@ -64,7 +76,7 @@ export const courses = [
     level: "Intermediate",
     rating: 4.6,
     students: 1320,
-    thumbnail: "/images/js.jpg",
+    thumbnail: javascriptImg,
     description:
       "Understand closures, prototypes, async JS, and performance optimization.",
     videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
@@ -78,7 +90,7 @@ export const courses = [
     level: "Beginner",
     rating: 4.5,
     students: 850,
-    thumbnail: "/images/mongodb.jpg",
+    thumbnail: mongodbImg,
     description:
       "Learn database design, indexing, aggregation, and performance tuning.",
     videoUrl: "https://www.w3schools.com/html/movie.mp4",
@@ -92,7 +104,7 @@ export const courses = [
     level: "Intermediate",
     rating: 4.8,
     students: 610,
-    thumbnail: "/images/typescript.jpg",
+    thumbnail: typescriptImg,
     description:
       "Master types, interfaces, generics, and TypeScript with React.",
     videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
@@ -106,7 +118,7 @@ export const courses = [
     level: "Advanced",
     rating: 4.9,
     students: 420,
-    thumbnail: "/images/fullstack.jpg",
+    thumbnail: fullstackImg,
     description:
       "Build and deploy a real SaaS product with authentication and payments.",
     videoUrl: "https://www.w3schools.com/html/movie.mp4",
@@ -120,7 +132,7 @@ export const courses = [
     level: "Intermediate",
     rating: 4.7,
     students: 500,
-    thumbnail: "/images/docker.jpg",
+    thumbnail: dockerImg,
     description:
       "Containerize applications and deploy using CI/CD pipelines.",
     videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
@@ -134,7 +146,7 @@ export const courses = [
     level: "Beginner to Advanced",
     rating: 4.9,
     students: 2000,
-    thumbnail: "/images/dsa.jpg",
+    thumbnail: dsaImg,
     description:
       "Master arrays, strings, trees, graphs, and crack technical interviews.",
     videoUrl: "https://www.w3schools.com/html/movie.mp4",

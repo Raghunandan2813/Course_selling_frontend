@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Login = () => {
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -26,37 +27,41 @@ const Login = () => {
 
   const validateForm = () => {
     const newErrors = {}
-    
+
     if (!formData.email.trim()) {
       newErrors.email = 'Email is required'
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       newErrors.email = 'Please enter a valid email'
     }
-    
+
     if (!formData.password.trim()) {
       newErrors.password = 'Password is required'
     } else if (formData.password.length < 6) {
       newErrors.password = 'Password must be at least 6 characters'
     }
-    
+
     return newErrors
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
     setSubmitted(true)
-    
+
     const newErrors = validateForm()
     setErrors(newErrors)
-    
+
     if (Object.keys(newErrors).length === 0) {
       console.log('Form submitted:', formData)
-      // Handle login logic here
+      // Set login flag in localStorage
+      localStorage.setItem('isLoggedIn', 'true')
+      localStorage.setItem('userEmail', formData.email)
+      // Redirect to home or previous page
+      navigate('/')
     }
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-white to-blue-50 flex items-center justify-center p-4">
       {/* Add animation styles */}
       <style>{`
         @keyframes shake {
@@ -70,7 +75,7 @@ const Login = () => {
       `}</style>
 
       <div className={`w-full max-w-md bg-white rounded-xl shadow-2xl p-8 transform transition-all duration-300 ${submitted && Object.keys(errors).length > 0 ? 'shake-animation' : ''}`}>
-        
+
         {/* Header */}
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Welcome Back</h1>
@@ -79,7 +84,7 @@ const Login = () => {
 
         {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-6">
-          
+
           {/* Email Field */}
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
@@ -92,11 +97,10 @@ const Login = () => {
               value={formData.email}
               onChange={handleChange}
               placeholder="you@example.com"
-              className={`w-full px-4 py-3 rounded-lg border-2 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 ${
-                errors.email
+              className={`w-full px-4 py-3 rounded-lg border-2 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-600 ${errors.email
                   ? 'border-red-500 bg-red-50 focus:ring-red-500'
-                  : 'border-gray-300 focus:border-indigo-500'
-              }`}
+                  : 'border-gray-300 focus:border-blue-600'
+                }`}
             />
             {errors.email && (
               <p className="mt-2 text-sm text-red-600 font-medium animate-pulse">
@@ -117,11 +121,10 @@ const Login = () => {
               value={formData.password}
               onChange={handleChange}
               placeholder="••••••••"
-              className={`w-full px-4 py-3 rounded-lg border-2 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 ${
-                errors.password
+              className={`w-full px-4 py-3 rounded-lg border-2 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-600 ${errors.password
                   ? 'border-red-500 bg-red-50 focus:ring-red-500'
-                  : 'border-gray-300 focus:border-indigo-500'
-              }`}
+                  : 'border-gray-300 focus:border-blue-600'
+                }`}
             />
             {errors.password && (
               <p className="mt-2 text-sm text-red-600 font-medium animate-pulse">
@@ -134,7 +137,7 @@ const Login = () => {
           <div className="flex justify-end">
             <Link
               to="/forgot-password"
-              className="text-sm text-indigo-600 hover:text-indigo-700 font-medium transition"
+              className="text-sm text-black hover:text-gray-700 font-medium transition"
             >
               Forgot Password?
             </Link>
@@ -143,7 +146,7 @@ const Login = () => {
           {/* Login Button */}
           <button
             type="submit"
-            className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 rounded-lg transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg"
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg"
           >
             Login
           </button>
@@ -154,7 +157,7 @@ const Login = () => {
         <div className="mt-6 text-center">
           <p className="text-gray-600 text-sm">
             Don't have an account?{' '}
-            <Link to="/signup" className="text-indigo-600 hover:text-indigo-700 font-bold transition">
+            <Link to="/signup" className="text-black hover:text-gray-700 font-bold transition">
               Sign Up
             </Link>
           </p>
